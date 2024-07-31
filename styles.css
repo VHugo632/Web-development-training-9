@@ -1,0 +1,457 @@
+/* Font Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* CSS Reset */
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Properties */
+
+body {
+    font-family: "Alata", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: hsl(0, 0%, 55%);
+    background: white;
+}
+header, main, footer {
+    padding: 0 125px;
+}
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3 {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 300;
+    color: black;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 70px;
+}
+h2 {
+    font-size: 50px;
+}
+h3 {
+    font-size: 30px;
+}
+a, p {
+    letter-spacing: 1px;
+}
+
+/* Mobile Elements */
+
+header .img_mobile {
+    filter: none;
+}
+#menu {
+    padding-top: 65px;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: black;
+    filter: opacity(0%);
+    z-index: 2;
+    transition: filter 0.2s ease-out;
+}
+#menu div, #menu nav {
+    padding: 0 125px;
+}
+#menu div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#menu ul {
+    margin-top: 15vh;
+    align-items: normal;
+    flex-direction: column;
+}
+#menu ul li {
+    margin: 15px 0;
+}
+#menu ul li::after {
+    content: none;
+}
+#menu ul li a {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+.img_mobile {
+    display: none;
+}
+#cta_mobile {
+    margin-top: 40px;
+    display: none;
+}
+
+/* Header and some elements of Footer + "menu" for mobile */
+
+header {
+    position: relative;
+    padding-top: 65px;
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header ul li, footer ul li {
+    margin: 0 18px;
+    position: relative;
+}
+header ul li:last-child{
+    margin-right: 0;
+}
+footer ul li:first-child{
+    margin-left: 0;
+}
+header ul li::after, footer ul li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 40%;
+    height: 2px;
+    left: 50%;
+    bottom: -13px;
+    transform: translateX(-50%) scaleX(0%);
+    background: white;
+    border-radius: 2px;
+    will-change: transform;
+    transition: transform 0.25s ease;
+}
+header ul li:hover::after, footer ul li:hover::after {
+    transform: translateX(-50%) scaleX(100%);
+}
+header ul li a, footer ul li a {
+    font-size: 16px;
+    color: white;
+    text-transform: capitalize;
+}
+#menu_icon, #close_menu_icon {
+    width: 28px;
+    cursor: pointer;
+}
+#menu_icon {
+    display: none;
+}
+header h1 {
+    margin: 155px 0;
+    padding: 35px 110px 30px 40px;
+    display: inline-block;
+    color: white;
+    border: 2px solid white;
+}
+header > img {  /* I don't use "background-image" on "header" because I have to apply a brightness filter */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+    user-select: none;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Main */
+
+main section {
+    padding: 125px 0;
+}
+
+/* Introduction (Main - Section 1) */
+
+#introduction {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform: translateX(80px);
+}
+#introduction div {
+    padding-left: 90px;
+    padding-top: 90px;
+    background: white;
+    transform: translateX(-160px);
+}
+#introduction div p {
+    margin-top: 25px;
+    width: 440px;
+    line-height: 25px;
+    letter-spacing: normal;
+}
+
+/* Creations (Main - Section 2) */
+
+#creations {
+    padding-top: 75px;
+}
+#context {
+    display: flex;
+    justify-content: space-between;
+}
+.cta_button {
+    position: relative;
+    width: 140px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 2px solid black;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.cta_button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    background: black;
+    border-radius: 50%;
+    transform: scale(0%);
+    transition: transform 0.3s ease;
+}
+.cta_button p {
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+.cta_button:hover::before {
+    transform: scale(100%);
+}
+.cta_button:hover p {
+    color: white;
+}
+#cards {
+    padding-top: 75px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 37px;
+}
+#cards .card {
+    position: relative;
+    height: 440px;
+    overflow: hidden;
+}
+#cards .card::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, black, transparent 50%);
+    filter: opacity(50%);
+}
+#cards .card::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    width: 100%;
+    height: 100%;
+    background: white;
+    filter: opacity(70%);
+    transition: transform 0.4s ease;
+}
+#cards .card img {
+    width: 250px;
+    user-select: none;
+    pointer-events: none;
+}
+#cards .card h3 {
+    position: absolute;
+    left: 38px;
+    bottom: 35px;
+    color: white;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+#cards .card:hover::after {
+    transform: translateY(0%);
+}
+#cards .card:hover h3 {
+    color: black;
+}
+
+/* Footer */
+
+footer {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    background: black;
+}
+#left img {
+    width: 165px;
+}
+#right ul {
+    justify-content: flex-end;
+}
+#right ul li {
+    margin: 0 9px;
+}
+#right ul li:last-child {
+    margin-right: 0;
+}
+#socials li::after {
+    width: 100%;
+    bottom: -8px;
+}
+#left ul, #right p {
+    margin-top: 26px;
+}
+
+/* Media Queries */
+
+@media screen and (width < 1230px) {
+    header, main, footer, #menu div, #menu nav {
+        padding-left: 75px;
+        padding-right: 75px;
+    }
+    #introduction {
+        flex-direction: column;
+        align-items: normal;
+        transform: none;
+    }
+    #introduction div {
+        padding: 0;
+        background: transparent;
+        transform: none;
+    }
+    #introduction div h2, #introduction div p {
+        text-align: center;
+    }
+    #introduction div h2 {
+        margin-top: 65px;
+        margin-bottom: 35px;
+    }
+    #introduction div p {
+        margin: 0;
+        padding: 0 85px;
+        width: auto;
+    }
+}
+@media screen and (width < 975px) {
+    .img_desktop {
+        display: none;
+    }
+    .img_mobile {
+        display: block;
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+    header > nav > ul {
+        display: none;
+    }
+    #menu_icon {
+        display: flex;
+    }
+    #creations {
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #context {
+        justify-content: center;
+    }
+    #context #cta_desktop {
+        display: none;
+    }
+    #cta_mobile {
+        display: flex;
+    }
+    #cards .card {
+        height: auto;
+    }
+    #cards .card::before {
+        background: linear-gradient(90deg, black, transparent 50%);
+    }
+    #cards .card img {
+        width: 100%;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer ul li {
+        margin: 10px 0;
+    }
+    #left ul {
+        flex-direction: column;
+    }
+    #right ul {
+        justify-content: center;
+        margin-top: 40px;
+    }
+}
+@media screen and (width < 750px) {
+    header, main, footer, #menu div, #menu nav {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    h1{
+        font-size: 45px;
+    }
+    h2 {
+        font-size: 35px;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    header, #menu {
+        padding-top: 45px;
+    }
+    main section {
+        padding: 75px 0;
+    }
+    #introduction div p {
+        padding: 0;
+    }
+}
+@media screen and (width < 475px) {
+    h1{
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+    header h1 {
+        padding: 20px;
+    }
+    #cards .card h3 {
+        left: 20px;
+        bottom: 20px;
+    }
+}
